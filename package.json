@@ -1,0 +1,23 @@
+{
+  "name": "electron-typescript-starter",
+  "version": "1.0.0",
+  "description": "Electron using TypeScript starter project based Dave M Bush's blog at https://blog.dmbcllc.com/typescript-and-electron-the-right-way/",
+  "main": "index.js",
+  "scripts": {
+    "prepublish": "typings install",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-loader": "^2.1.0"
+  },
+  "dependencies": {
+    "@types/electron": "^1.6.10",
+    "@types/react": "^15.0.29",
+    "@types/react-dom": "^15.5.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "ts-loader": "^2.1.0"
+  }
+}
