@@ -1,5 +1,7 @@
 import {BrowserWindow} from 'electron';
 const {ipcMain} = require('electron')
+import {FileMonitor} from "./FileMonitor"
+import {EventPublisher} from "./EventPublisher"
 
 export default class Main {
     static mainWindow: Electron.BrowserWindow;
@@ -16,15 +18,18 @@ export default class Main {
     }
 
     private static onReady(){
-        ipcMain.on('ui-notifications"', (event, arg) => {
-            console.log(arg)  // prints "ping"
-        });
+
         Main.mainWindow =  new Main.BrowserWindow({width: 800, height: 600})
         var indexUrl = `file://${__dirname}/index.html`;
         Main.mainWindow.loadURL(indexUrl);
         Main.mainWindow.webContents.openDevTools();
         Main.mainWindow.on('closed', Main.onClose);
+        ipcMain.on('ui-notifications', (event, arg) => {
+            console.log(arg)  // prints "ping"
+        });
 
+        var publisher = new EventPublisher();
+        var monitor = new FileMonitor('/users/mikedice/temp/test.txt');
     }
 
     static main(

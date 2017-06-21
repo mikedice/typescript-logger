@@ -19,14 +19,17 @@ import Hello from "./Hello";
 
 class UIEntry{
   static StartUI(){
-    
-    electron.ipcRenderer.send("ui-notifications", {
-      name: "started-ui",
-      value: "hello!"
-    });
+    // setInterval(()=>{
+    //   console.log('timed out');
+    //   electron.ipcRenderer.send('ui-notifications', {
+    //   name: "started-ui",
+    //   value: "hello!"
+    // });
+    // },1000);
+
 
     ReactDOM.render(
-      <Hello name="Willson" />,
+      <Hello name="Mike" />,
       document.getElementById("root")
     );
   }
